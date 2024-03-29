@@ -1,0 +1,6 @@
+../Inc/system_stm32f4xx.h:131:20:DelayMs	24	static
+../Src/mylcd.c:10:6:LCDbusywait	16	static
+../Src/mylcd.c:45:6:LCDwritenibble	16	static
+../Src/mylcd.c:66:6:LCDwrite	24	static
+../Src/mylcd.c:75:6:LCDinit	8	static
+../Src/mylcd.c:112:6:LCDputs	24	static
