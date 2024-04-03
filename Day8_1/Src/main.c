@@ -38,38 +38,24 @@ int main(void)
 	EEPROM_Init();
 	do
 		{
-			sprintf(str, "Menu:\n\r1. Write String to EEPROM\n\r2. Read String from EEPROM\n\n\r");
-			UartPuts(str);
+			UartPuts("Menu:\n\r1. Write String to EEPROM\n\r2. Read String from EEPROM\n\n\r");
 
-			sprintf(str, "Select your choice: ");
-			UartPuts(str);
+			UartPuts("Select your choice: ");
 			UartGets(str);
 			sscanf(str, "%d", &choice);
 			switch(choice) {
-				case 0:
-						sprintf(str, "\n\rThank You\n\r");
-						UartPuts(str);
-						break;
-				case 1:
 
-						sprintf(str, "Enter the string\n\r");
-						UartPuts(str);
-						UartGets(str);
-						sscanf(str, "%s", str2);
+				case 1:
+						UartPuts("Enter the string\n\r");
+						UartGets(str2);
 						EEPROM_Write(0x0020, (uint8_t*)str2, 32);
 						break;
 
 				case 2:
-						sprintf(str, "Reading the String: \n\r");
 						EEPROM_Read(0x0020, (uint8_t*)str2, 32);
 						UartPuts(str2);
-						sprintf(str, "\n\r");
-						UartPuts(str);
 						break;
 
-				default:
-						sprintf(str, "Invalid choice\n");
-						UartPuts(str);
 			}
 		}while(choice != 0);
 
